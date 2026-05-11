@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALEEN | مالعين للديكور</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Amiri:ital@1&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #050505; 
+            margin: 0; padding: 0; 
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .welcome-title {
+            font-family: 'Playball', cursive;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #fff;
+            margin-top: 40px;
+            text-shadow: 0 0 10px #fff, 0 0 20px #ffdd00;
+            animation: flicker 2s infinite alternate;
+        }
+
+        .sub-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+        }
+
+        /* حاوية المعرض */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 60px;
+        }
+
+        /* الإطار النيون الأبيض الدوار */
+        .neon-card {
+            position: relative;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .neon-card::before {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 140%;
+            background: linear-gradient(#fff, #fff);
+            box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+            animation: rotate-neon 3s linear infinite;
+        }
+
+        .neon-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #050505;
+            border-radius: 17px;
+        }
+
+        .neon-card img, .neon-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            z-index: 2;
+            border-radius: 17px;
+        }
+
+        @keyframes rotate-neon {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* تأثير النيون الذهبي عند الضغط */
+        .neon-click {
+            position: absolute;
+            width: 15px; height: 15px;
+            background: #ffdd00;
+            box-shadow: 0 0 20px 10px rgba(255, 221, 0, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: pulse-out 0.6s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes pulse-out {
+            0% { transform: translate(-50%, -50%) scale(0.1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+        }
+
+        .main-logo-container {
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 50px;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .action-button {
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            color: #000;
+            background: #ffdd00;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 221, 0, 0.4);
+            transition: 0.3s;
+            position: relative;
+            z-index: 10;
+        }
+
+        .action-button:hover { transform: translateY(-3px); box-shadow: 0 5px 25px #fff; background: #fff; }
+
+        @keyframes flicker {
+            0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #ffdd00; }
+            50% { text-shadow: none; }
+        }
+
+        * { -webkit-tap-highlight-color: transparent; }
+    </style>
+</head>
+<body onmousedown="createNeon(event)">
+
+    <h1 class="welcome-title">Welcome to Maleen</h1>
+    <div class="sub-title">صنع ديكورات</div>
+
+    <div class="main-logo-container">
+        <div class="neon-card">
+            <img src="https://i.postimg.cc/TwrzbM9b/file-00000000cca871fdb2c462533faf1ae7.png" alt="Maleen Logo">
+        </div>
+    </div>
+
+    <div class="gallery-grid">
+        <!-- الصور -->
+        <div class="neon-card"><img src="https://i.postimg.cc/vxXBN4Rt/IMG-20260511-WA0000.jpg"></div>
+        <div class="neon-card"><img src="https://i.postimg.cc/8fw50784/IMG-20260511-WA0001.jpg"></div>
+        <div class="neon-card"><img src="https://i.postimg.cc/gL4JTx9D/IMG-20260511-WA0002.jpg"></div>
+        <div class="neon-card"><img src="https://i.postimg.cc/2LT6K1pT/IMG-20260511-WA0003.jpg"></div>
+
+        <!-- الفيديوهات -->
+        <div class="neon-card"><video controls><source src="https://f.top4top.io/m_3783yk8330.mp4" type="video/mp4"></video></div>
+        <div class="neon-card"><video controls><source src="https://d.top4top.io/m_37830pa9e0.mp4" type="video/mp4"></video></div>
+        <div class="neon-card"><video controls><source src="https://f.top4top.io/m_3783upp6o2.mp4" type="video/mp4"></video></div>
+        <div class="neon-card"><video controls><source src="https://g.top4top.io/m_37837punf3.mp4" type="video/mp4"></video></div>
+    </div>
+
+    <div class="buttons-container">
+        <a href="https://www.tiktok.com/@mallanen.2025" target="_blank" class="action-button">TikTok</a>
+        <a href="https://youtube.com/channel/UCe5QkSL2eyoO2t6vgcJU75w" target="_blank" class="action-button">YouTube</a>
+        <a href="https://wa.me/212674160792" target="_blank" class="action-button">0674160792</a>
+    </div>
+
+    <script>
+        function createNeon(e) {
+            // منع التأثير إذا كان المستخدم يحدد نصاً
+            if (window.getSelection().toString().length > 0) return;
+            
+            const neon = document.createElement('div');
+            neon.className = 'neon-click';
+            neon.style.left = e.pageX + 'px';
+            neon.style.top = e.pageY + 'px';
+            document.body.appendChild(neon);
+            
+            // حذف العنصر بعد انتهاء الحركة
+            setTimeout(() => { neon.remove(); }, 600);
+        }
+    </script>
+
+</body>
+</html>
